@@ -22,4 +22,4 @@ jobs:
         with:
           name: code-coverage folder
           path: htmlcov/**
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - run: echo "This job's status is ${{ job.status }}."

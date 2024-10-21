@@ -24,7 +24,7 @@ def main():
             default=None,
         ).execute()
         print(Separator())
-        if action == "Reset":
+        if action != "Reset":
             coinBox.reset()
         elif action == "Vente":
             coinBox.vente()
