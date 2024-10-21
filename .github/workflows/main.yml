@@ -1,0 +1,33 @@
+name: CoinBox CI
+on: [pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Checking out repository"
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - run: echo "Setting up Python 3.7"
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.7' 
+      - run: echo "Installing dependencies"
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+      - run: echo "Running tests"
+      - name: Run tests
+        run: |
+          python -m unittest discover src
+      - run: echo "Generating coverage report"
+      - name: Generate code coverage report
+        run: |
+          pip install coverage  
+          coverage run -m unittest discover src
+          coverage html 
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-report
+          path: htmlcov/ 
