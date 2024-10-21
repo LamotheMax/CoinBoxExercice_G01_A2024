@@ -37,4 +37,5 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
-        pytest --cov --cov-branch --cov-report=html
+        coverage run --branch -m pytest
+        coverage html
