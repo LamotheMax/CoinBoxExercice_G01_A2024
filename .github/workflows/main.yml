@@ -7,11 +7,11 @@ jobs:
       - run: echo "Checking out repository"
       - name: Checkout repository
         uses: actions/checkout@v2
-      - run: echo "Setting up Python 3.7"
+      - run: echo "Setting up Python"
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '>=3.7,<3.12'
+          python-version: '3.9'
       - run: echo "Installing dependencies"
       - name: Install dependencies
         run: |
